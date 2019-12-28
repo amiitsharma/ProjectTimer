@@ -1,0 +1,65 @@
+<html>
+<head>
+<style>
+#a1 > div
+{
+  display:inline-block;
+  padding:10px;
+  background-color:lightblue;
+}
+#a1 > span
+{
+  display:inline-block;
+  padding:15px;
+  background-color:lightblue;
+}
+</style>
+</head>
+<body>
+<center><h1>Time Left</h1>
+<div id="a1">
+<div>
+<span id="a2"></span>
+<div>Days</div>
+</div>
+<div>
+<span id="a3"></span>
+<div>Hours</div>
+</div>
+<div>
+<span id="a4"></span>
+<div>Minutes</div>
+</div>
+<div>
+<span id="a5"></span>
+<div>Seconds</div>
+</div>
+</div>
+<p id="a6"></p>
+<script>
+var deadline=new Date("Dec 31,2019 11:59:59").getTime();
+var x=setInterval(function(){
+
+var now=new Date().getTime();
+var t=deadline-now;
+var days=Math.floor(t/(1000*60*60*24));
+var hours=Math.floor((t%(1000*60*60*24))/(1000*60*60));
+var minutes=Math.floor((t%(1000*60*60))/(1000*60));
+var seconds=Math.floor((t%(1000*60))/1000);
+document.getElementById("a2").innerHTML=days;
+document.getElementById("a3").innerHTML=hours;
+document.getElementById("a4").innerHTML=minutes;
+document.getElementById("a5").innerHTML=seconds;
+if(t<0)
+{
+  document.getElementById("a6").innerHTML="Time Over";
+  document.getElementById("a2").innerHTML="00";
+document.getElementById("a3").innerHTML="00";
+document.getElementById("a4").innerHTML="00";
+document.getElementById("a5").innerHTML="00";
+}
+},1000);
+</script>
+</center>
+</body>
+</html>
